@@ -1,0 +1,291 @@
+// about 3 * N * N on random
+// worse 5 * N * N + linear (about 20*N)
+
+#include <fstream>
+#include <cstdlib>
+#include <cstdio>
+#include <cassert>
+
+using namespace std;
+
+#define TASKNAME "chameleon"
+
+typedef long long ll;
+typedef long double ld;
+
+const int MAXN = 1100;
+
+const int    dx[4] = {  1,  0, -1,  0};
+const int    dy[4] = {  0,  1,  0, -1};
+const char name[4] = {'d','r','u','l'};
+
+int n;
+
+int cur[MAXN][MAXN];
+int need[MAXN][MAXN];
+
+int curx,cury;
+int basex,basey;
+
+const int MAXANS = 5000000;
+
+char ans[MAXANS+100];
+int ansptr;
+
+int rev;
+
+void print(){
+    fprintf(stderr,"\n");
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < n; j++)
+			fprintf(stderr,"%d",cur[i][j]);
+		fprintf(stderr,"           ");
+		for (int j = 0; j < n; j++)
+			fprintf(stderr,"%d",need[i][j]);
+	    fprintf(stderr,"\n");
+	}
+    fprintf(stderr,"\n");
+}
+
+void go(int tox,int toy,bool recolor){
+	if (tox < 0 || toy < 0 || tox >= n || toy >= n){
+		fprintf(stderr,"Can't go to (%d %d)\n",tox,toy);
+		assert(false);
+	}
+	for (int i = 0; i < 4; i++)
+		if (curx + dx[i] == tox && cury + dy[i] == toy){
+			if (recolor) cur[tox][toy] = cur[curx][cury];
+			curx = tox;
+			cury = toy;
+			if (recolor) ans[ansptr++] = name[i^rev]+'A'-'a';
+			else ans[ansptr++] =  name[i^rev];
+//			print();
+			assert(ansptr <= MAXANS);
+			return;
+		}
+	fprintf(stderr,"Can't go from (%d,%d) to (%d %d)\n",curx,cury,tox,toy);
+	assert(false);
+}
+
+void findbase(int& basex,int& basey){
+    for (int i = 0; i < n && basex == -1; i++)
+    	for (int j = 0; j < n-1 && basex == -1; j++)
+    		if (need[i][j] == need[i][j+1]){
+    			basex = i;
+    			basey = j;
+    			break;
+    		}
+}
+
+void _moveTo(int tox,int toy,bool recolor){
+	//fprintf(stderr,"Moving from (%d, %d) to (%d, %d) recolor = %d\n",curx,cury,tox,toy,(int)recolor);
+	while (curx < tox) go(curx+1,cury,recolor);
+	while (curx > tox) go(curx-1,cury,recolor);
+	while (cury < toy) go(curx,cury+1,recolor);
+	while (cury > toy) go(curx,cury-1,recolor);
+}
+
+void moveTo(int tox,int toy){
+	_moveTo(tox,toy,false);
+}
+
+void colorTo(int tox,int toy){
+	_moveTo(tox,toy,true);
+}
+
+void Finish(){
+	int dlt;
+	if (cur[basex][basey] == need[basex][basey])
+	    dlt = 1;
+	else
+		dlt = 0;
+	// paint last 3x2 rectangle
+	moveTo(basex,basey+dlt);
+	if (basex != 0) colorTo(basex-1,basey+1-dlt);
+	moveTo(basex,basey+dlt);
+	if (basex != n-1) colorTo(basex+1,basey+1-dlt);
+
+	moveTo(basex,basey+1-dlt);
+	colorTo(basex,basey+dlt);
+
+	moveTo(basex,basey);
+
+	if (basex != 0 && cur[basex-1][basey] != need[basex-1][basey])
+		colorTo(basex-1,basey),moveTo(basex,basey);
+	if (basex != n-1 && cur[basex+1][basey] != need[basex+1][basey])
+		colorTo(basex+1,basey),moveTo(basex,basey);
+
+	moveTo(basex,basey+1);
+
+	if (basex != 0 && cur[basex-1][basey+1] != need[basex-1][basey+1])
+		colorTo(basex-1,basey+1),moveTo(basex,basey+1);
+	if (basex != n-1 && cur[basex+1][basey+1] != need[basex+1][basey+1])
+		colorTo(basex+1,basey+1),moveTo(basex,basey+1);
+}
+
+void Start(){
+	//paint base, and line with base;
+	colorTo(basex,basey);
+
+	int t = basex - 1;
+	if (t == -1) t = 1;
+
+	if (basey != 0){
+		moveTo(basex,basey+1);
+		colorTo(t,basey+1);
+		colorTo(t,0);
+		colorTo(basex,basey-1);
+		moveTo(basex,basey);
+	}
+    colorTo(t,n-1);
+    colorTo(t,0);
+	for (int j = 0; j < n; j++){
+		if (need[basex][j] != cur[basex][j] && (j != basey && j != basey+1)){
+			moveTo(t,j);
+			colorTo(basex,j);
+		}
+	}
+}
+
+void ColorPointFromBase(int x,int y){
+	if (need[x][y] == cur[x][y])
+		return;
+	moveTo(basex,basey + !need[x][y]);
+	colorTo(x,y);
+}
+
+void ColorLineFromBase(int id){
+	for (int j = 0; j < basey; j++)
+		ColorPointFromBase(id,j);
+	for (int j = n-1; j >= basey+1; j--)
+		ColorPointFromBase(id,j);
+}
+
+void Down(){
+	moveTo(basex,basey);
+    if (basex > 1){
+	    colorTo(basex-1,0);
+	    colorTo(basex-1,n-1);
+	}
+
+	for (int i = basex - 2; i >= 0; i--){
+		if ((basex - i) % 2){
+			moveTo(i,0);
+			colorTo(i,n-1);
+		}
+		else {
+			moveTo(i,n-1);
+			colorTo(i,0);
+		}
+	}
+                                           
+	for (int i = 0; i < basex-1; i++){
+		if (cury == 0){
+			for (int j = 0; j < n; j++)
+				if (cur[i][j] != need[i][j]){
+					moveTo(i+1,j);
+					colorTo(i,j);
+				}
+		} else {
+			for (int j = n-1; j >= 0; j--)
+				if (cur[i][j] != need[i][j]){
+					moveTo(i+1,j);
+					colorTo(i,j);
+				}
+		}
+	}
+}
+
+void Up(){
+	if (basex != n-1){
+		colorTo(basex+1,0);
+		colorTo(n-1,0);
+		colorTo(basex+1,n-1);
+	}
+            
+	for (int i = basex + 2; i < n; i++){
+		if ((basex - i) % 2){
+			moveTo(i,0);
+			colorTo(i,n-1);
+		}
+		else {
+			moveTo(i,n-1);
+			colorTo(i,0);
+		}
+	}
+
+	for (int i = n-1; i > basex+1; i--){
+		if (cury == 0){
+			for (int j = 0; j < n; j++)
+				if (cur[i][j] != need[i][j]){
+					moveTo(i-1,j);
+					colorTo(i,j);
+				}
+		} else {
+			for (int j = n-1; j >= 0; j--)
+				if (cur[i][j] != need[i][j]){
+					moveTo(i-1,j);
+					colorTo(i,j);
+				}
+		}
+	}
+
+}
+
+int main(){
+  #ifndef NOFILES
+   // freopen(TASKNAME".in","r",stdin);
+   // freopen(TASKNAME".out","w",stdout);
+  #endif
+
+    scanf("%d",&n);
+
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++){
+			char c;
+	    	scanf(" %c",&c);
+	    	need[i][j] = (c == 'B');
+	    	cur[i][j] = !i && !j;
+    	}
+                      
+    basex = basey = -1;        
+    findbase(basex,basey);
+
+	if (basex == -1){
+		for (int i = 0; i < n; i++)
+			for (int j = i+1; j < n; j++)
+				swap(need[i][j],need[j][i]);
+		rev = 1;
+	    findbase(basex,basey);
+	    if (basex == -1){
+	    	fprintf(stderr,"It's a chess board!\n");
+	    	assert(false);
+	    }
+	}
+
+//	fprintf(stderr,"Basex = %d, Basey = %d\n",basex,basey);
+
+	Start();
+
+    Down();
+
+	moveTo(basex,basey);
+
+	Up();
+
+	if (basex != 0) ColorLineFromBase(basex-1);
+	if (basex != n-1) ColorLineFromBase(basex+1);
+
+	Finish();	
+
+//	print();
+
+	for (int i = 0; i < n; i++)	
+		for (int j = 0; j < n; j++)
+			assert(cur[i][j] == need[i][j]);
+
+	fprintf(stderr,"%d moves\n",ansptr);
+	ans[ansptr++] = 0;
+	puts(ans);      
+    return 0;
+}

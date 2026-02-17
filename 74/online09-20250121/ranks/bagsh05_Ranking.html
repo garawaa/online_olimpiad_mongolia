@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://informatics.edu.mn/contest2-onoo/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="shortcut icon" href="https://informatics.edu.mn/contest2-onoo/img/favicon.ico">
+        <link rel="stylesheet" href="./bagsh05_Ranking_files/Ranking.css">
+        <script src="./bagsh05_Ranking_files/jquery.min.js.download"></script>
+        <script>
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='lib/jquery.js'%3E%3C/script%3E"));
+}
+if (!("EventSource" in window)) {
+    document.write(unescape("%3Cscript src='lib/eventsource.js'%3E%3C/script%3E"));
+}
+        </script>
+        <script src="./bagsh05_Ranking_files/raphael.js.download"></script>
+        <!--[if lt IE 9]>
+            <script src="lib/explorercanvas.js"></script>
+        <![endif]-->
+        <script src="./bagsh05_Ranking_files/Config.js.download"></script>
+        <script src="./bagsh05_Ranking_files/DataStore.js.download"></script>
+        <script src="./bagsh05_Ranking_files/HistoryStore.js.download"></script>
+        <script src="./bagsh05_Ranking_files/Chart.js.download"></script>
+        <script src="./bagsh05_Ranking_files/UserDetail.js.download"></script>
+        <script src="./bagsh05_Ranking_files/TimeView.js.download"></script>
+        <script src="./bagsh05_Ranking_files/TeamSearch.js.download"></script>
+        <script src="./bagsh05_Ranking_files/Overview.js.download"></script>
+        <script src="./bagsh05_Ranking_files/Scoreboard.js.download"></script>
+        <script src="./bagsh05_Ranking_files/Ranking.js.download"></script>
+        <title>Ranking</title>
+    </head>
+    <body>
+        <div id="OuterFrame">
+            <div id="LogoPanel">
+                <img src="./bagsh05_Ranking_files/logo" alt="Logo">
+            </div>
+            <div id="UpperPanel">
+                <div id="ConnectionStatus_box" data-status="disconnected">
+                    <div id="ConnectionStatus_label">Status</div>
+                    <div id="ConnectionStatus_text">You are disconnected from the server but you can <a onclick="DataStore.create_event_source();">try to connect</a>.</div>
+                </div>
+            </div>
+            <div id="TimeView" class="current post_cont">
+                <div id="TimeView_name"></div>
+                <div id="TimeView_selector">
+                    <div id="TimeView_time">16:14:56</div><div id="TimeView_expand"><div class="caret"></div></div>
+                    <div id="TimeView_selector_elapsed">Elapsed time</div>
+                    <div id="TimeView_selector_remaining">Remaining time</div>
+                    <div id="TimeView_selector_current">Current time</div>
+                </div>
+            </div>
+            <div id="SidePanel">
+                <div id="Overview"><svg height="440.4" version="1.1" width="220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.600006px;"><path fill="url(&#39;https://informatics.edu.mn/contest2-onoo/#0fl2k0-_E4E4E4-_DADADB&#39;)" stroke="none" d="M12.603305785123966,430.4C12.169421487603307,426.12499999999994,10.433884297520661,413.3,10,404.75C9.566115702479339,396.2,10,387.65000000000003,10,379.09999999999997C10,370.54999999999995,10,362,10,353.45C10,344.8999999999999,10,336.3499999999999,10,327.79999999999995C10,319.24999999999994,7.595041322314049,310.7,10,302.15C12.404958677685949,293.59999999999997,23.19421487603306,285.05,24.429752066115704,276.5C25.66528925619835,267.95,19.384297520661157,259.4,17.413223140495866,250.85C15.442148760330575,242.29999999999998,13.404958677685952,233.74999999999997,12.603305785123966,225.2C11.801652892561984,216.64999999999998,11.801652892561984,208.1,12.603305785123966,199.54999999999998C13.404958677685949,191,17.413223140495866,182.44999999999996,17.413223140495866,173.89999999999998C17.413223140495866,165.35,13.838842975206612,156.8,12.603305785123966,148.25C11.367768595041321,139.70000000000002,10.433884297520661,131.15,10,122.60000000000002C9.566115702479339,114.05000000000003,10,105.5,10,96.94999999999999C10,88.39999999999998,10,79.85000000000001,10,71.30000000000001C10,62.75000000000001,10,54.19999999999998,10,45.64999999999998C10,37.09999999999997,10,24.274999999999995,10,20L10,20L10,430.4Z" opacity="1" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; fill-opacity: 1;"></path><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><lineargradient id="0fl2k0-_E4E4E4-_DADADB" x1="0" y1="0" x2="1" y2="0" gradientTransform="matrix(1,0,0,1,0,0)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><stop offset="0%" stop-color="#e4e4e4" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="100%" stop-color="#dadadb" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop></lineargradient><lineargradient id="wbuz2270-_ffd700:2.7777777777777777-_ffd700:5.555555555555555-_c0c0c0:13.88888888888889-_c0c0c0:19.444444444444443-_cd7f32:33.33333333333333-_cd7f32:41.666666666666664-_000000:66.66666666666666-_000000:83.33333333333333" x1="1.8369701987210297e-16" y1="0" x2="0" y2="1" gradientTransform="matrix(1,0,0,1,0,0)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><stop offset="2.7777777777777777%" stop-color="#ffd700" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="5.555555555555555%" stop-color="#ffd700" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="13.88888888888889%" stop-color="#c0c0c0" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="19.444444444444443%" stop-color="#c0c0c0" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="33.33333333333333%" stop-color="#cd7f32" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="41.666666666666664%" stop-color="#cd7f32" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="66.66666666666666%" stop-color="#000000" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop><stop offset="83.33333333333333%" stop-color="#000000" stop-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop></lineargradient></defs><path fill="none" stroke="#cccccc" d="M12.603305785123966,430.4C12.169421487603307,426.12499999999994,10.433884297520661,413.3,10,404.75C9.566115702479339,396.2,10,387.65000000000003,10,379.09999999999997C10,370.54999999999995,10,362,10,353.45C10,344.8999999999999,10,336.3499999999999,10,327.79999999999995C10,319.24999999999994,7.595041322314049,310.7,10,302.15C12.404958677685949,293.59999999999997,23.19421487603306,285.05,24.429752066115704,276.5C25.66528925619835,267.95,19.384297520661157,259.4,17.413223140495866,250.85C15.442148760330575,242.29999999999998,13.404958677685952,233.74999999999997,12.603305785123966,225.2C11.801652892561984,216.64999999999998,11.801652892561984,208.1,12.603305785123966,199.54999999999998C13.404958677685949,191,17.413223140495866,182.44999999999996,17.413223140495866,173.89999999999998C17.413223140495866,165.35,13.838842975206612,156.8,12.603305785123966,148.25C11.367768595041321,139.70000000000002,10.433884297520661,131.15,10,122.60000000000002C9.566115702479339,114.05000000000003,10,105.5,10,96.94999999999999C10,88.39999999999998,10,79.85000000000001,10,71.30000000000001C10,62.75000000000001,10,54.19999999999998,10,45.64999999999998C10,37.09999999999997,10,24.274999999999995,10,20" stroke-width="2" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="#b8b8b8" d="M10,20L10,430.4M6,122.6L14,122.6M6,225.2L14,225.2M6,327.79999999999995L14,327.79999999999995" stroke-width="3" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round;"></path><path fill="none" stroke="url(&#39;https://informatics.edu.mn/contest2-onoo/#wbuz2270-_ffd700:2.7777777777777777-_ffd700:5.555555555555555-_c0c0c0:13.88888888888889-_c0c0c0:19.444444444444443-_cd7f32:33.33333333333333-_cd7f32:41.666666666666664-_000000:66.66666666666666-_000000:83.33333333333333&#39;)" d="M210,20L210,430.4M206,20L214,20M206,430.4L214,430.4" opacity="1" fill-opacity="1" stroke-width="3" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; fill-opacity: 1; stroke-linecap: round;"></path><text x="4" y="10" text-anchor="start" font-family="sans-serif" font-size="12px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 12px; opacity: 0;" opacity="0"><tspan dy="4.3999998569488525" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Score</tspan></text><text x="216" y="10" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; opacity: 0;" opacity="0"><tspan dy="4.3999998569488525" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Rank</tspan></text></svg></div>
+                <div style="color: #999; text-align: center; font-size: 12px; padding-top: 5px;">
+                    Powered by <a style="color: #00A3DA; text-decoration: none;" href="https://cms-dev.github.io/" target="_blank">CMS</a>
+                </div>
+            </div>
+            <div id="InnerFrame">
+                <table id="Scoreboard">
+                    <colgroup id="Scoreboard_cols"> <col class="sel"> <col class="rank"> <col class="f_name"> <col><col><col><col><col><col><col><col><col> <col class="l_name"> <col><col><col><col><col><col><col><col><col> <col class="team"> <col class="score task" data-task="A" data-sort_key="t_A"> <col><col> <col class="score task" data-task="B" data-sort_key="t_B"> <col><col> <col class="score task" data-task="C" data-sort_key="t_C"> <col><col> <col class="score contest" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh"> <col><col><col> <col class="score global sort_key" data-sort_key="global"> <col><col><col><col></colgroup>
+                    <thead id="Scoreboard_head"> <tr>     <th class="sel"></th>     <th class="rank">Rank</th>     <th colspan="10" class="f_name">First Name</th>     <th colspan="10" class="l_name">Last Name</th>     <th class="team">Team</th>     <th colspan="3" class="score task" data-task="A" data-sort_key="t_A"><abbr title="Дараалал">A</abbr></th>     <th colspan="3" class="score task" data-task="B" data-sort_key="t_B"><abbr title="Дэлгэц">B</abbr></th>     <th colspan="3" class="score task" data-task="C" data-sort_key="t_C"><abbr title="Өрөө">C</abbr></th>     <th colspan="4" class="score contest" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh"><abbr title="ОНЛАЙН ОЛИМПИАД-05. 2025-01-21. БАГШ">ОНЛАЙН ОЛИМПИАД-05. 2025-01-21. БАГШ</abbr></th>     <th colspan="5" class="score global" data-sort_key="global">Global</th> </tr></thead>
+                    <tbody id="Scoreboard_body"><tr class="user" data-user="u25740149">     <td class="sel"></td>     <td class="rank">1</td>     <td colspan="10" class="f_name">Батхуяг.Ц Багш</td>     <td colspan="10" class="l_name">УБ Баянзүрх Оюунлаг Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_100" data-task="C" data-sort_key="t_C">100</td>     <td colspan="4" class="score contest score_60_70" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">200</td>     <td colspan="5" class="score global score_60_70 sort_key" data-sort_key="global">200</td> </tr><tr class="user" data-user="u25741045">     <td class="sel"></td>     <td class="rank">2</td>     <td colspan="10" class="f_name">Дөлгөөн.З Багш</td>     <td colspan="10" class="l_name">УБ Баянзүрх ШМТК Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0_10" data-task="B" data-sort_key="t_B">5</td>     <td colspan="3" class="score task score_90_100" data-task="C" data-sort_key="t_C">91</td>     <td colspan="4" class="score contest score_60_70" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">196</td>     <td colspan="5" class="score global score_60_70 sort_key" data-sort_key="global">196</td> </tr><tr class="user" data-user="u25740493">     <td class="sel"></td>     <td class="rank">3</td>     <td colspan="10" class="f_name">Цэдэвсүрэн.Ц Багш</td>     <td colspan="10" class="l_name">УВ Улаангом Цогцолбор 1-р сургууль Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_80_90" data-task="C" data-sort_key="t_C">85</td>     <td colspan="4" class="score contest score_60_70" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">185</td>     <td colspan="5" class="score global score_60_70 sort_key" data-sort_key="global">185</td> </tr><tr class="user" data-user="u25740788">     <td class="sel"></td>     <td class="rank">4</td>     <td colspan="10" class="f_name">Чулуунсүрэн.Д Багш</td>     <td colspan="10" class="l_name">УБ Чингэлтэй Косэн Клуб Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_70_80" data-task="A" data-sort_key="t_A">75</td>     <td colspan="3" class="score task score_0_10" data-task="B" data-sort_key="t_B">5</td>     <td colspan="3" class="score task score_90_100" data-task="C" data-sort_key="t_C">91</td>     <td colspan="4" class="score contest score_50_60" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">171</td>     <td colspan="5" class="score global score_50_60 sort_key" data-sort_key="global">171</td> </tr><tr class="user" data-user="u25740442">     <td class="sel"></td>     <td class="rank">5</td>     <td colspan="10" class="f_name">Ганзориг.Д Багш</td>     <td colspan="10" class="l_name">УБ Хан-Уул Олонлог төв сургууль Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_40_50" data-task="C" data-sort_key="t_C">47</td>     <td colspan="4" class="score contest score_40_50" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">147</td>     <td colspan="5" class="score global score_40_50 sort_key" data-sort_key="global">147</td> </tr><tr class="user" data-user="u25740117">     <td class="sel"></td>     <td class="rank">6</td>     <td colspan="10" class="f_name">Батжаргал.Ч Багш</td>     <td colspan="10" class="l_name">УВ Улаангом 2-р Цогцолбор Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_30_40" data-task="C" data-sort_key="t_C">38</td>     <td colspan="4" class="score contest score_40_50" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">138</td>     <td colspan="5" class="score global score_40_50 sort_key" data-sort_key="global">138</td> </tr><tr class="user" data-user="u25740554">     <td class="sel"></td>     <td class="rank">7</td>     <td colspan="10" class="f_name">Тилеубек.Ш Багш</td>     <td colspan="10" class="l_name">БӨ Өлгий 2 дугаар сургууль Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_20_30" data-task="C" data-sort_key="t_C">26</td>     <td colspan="4" class="score contest score_40_50" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">126</td>     <td colspan="5" class="score global score_40_50 sort_key" data-sort_key="global">126</td> </tr><tr class="user" data-user="u25740085">     <td class="sel"></td>     <td class="rank">8</td>     <td colspan="10" class="f_name">Баасанжав.Д Багш</td>     <td colspan="10" class="l_name">ХО Ховд(Жаргалант) Цаст Алтай цогцолбор багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_0_10" data-task="C" data-sort_key="t_C">9</td>     <td colspan="4" class="score contest score_30_40" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">109</td>     <td colspan="5" class="score global score_30_40 sort_key" data-sort_key="global">109</td> </tr><tr class="user" data-user="u25740052">     <td class="sel"></td>     <td class="rank">9</td>     <td colspan="10" class="f_name">Батсүх.Д Багш</td>     <td colspan="10" class="l_name">ХЭ Хэрлэн 1st school Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_0" data-task="C" data-sort_key="t_C">0</td>     <td colspan="4" class="score contest score_30_40" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">100</td>     <td colspan="5" class="score global score_30_40 sort_key" data-sort_key="global">100</td> </tr><tr class="user" data-user="u25741601">     <td class="sel"></td>     <td class="rank">9</td>     <td colspan="10" class="f_name">Баянбат.Ч Багш</td>     <td colspan="10" class="l_name">ХӨ Мөрөн Дэлгэрмөрөн Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_100" data-task="A" data-sort_key="t_A">100</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_0" data-task="C" data-sort_key="t_C">0</td>     <td colspan="4" class="score contest score_30_40" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">100</td>     <td colspan="5" class="score global score_30_40 sort_key" data-sort_key="global">100</td> </tr><tr class="user" data-user="u25740101">     <td class="sel"></td>     <td class="rank">11</td>     <td colspan="10" class="f_name">u25740101</td>     <td colspan="10" class="l_name">Багш</td>     <td class="team"></td>     <td colspan="3" class="score task score_0" data-task="A" data-sort_key="t_A">0</td>     <td colspan="3" class="score task score_0" data-task="B" data-sort_key="t_B">0</td>     <td colspan="3" class="score task score_0" data-task="C" data-sort_key="t_C">0</td>     <td colspan="4" class="score contest score_0" data-contest="online05_2d20250121_2dbagsh" data-sort_key="c_online05_2d20250121_2dbagsh">0</td>     <td colspan="5" class="score global score_0 sort_key" data-sort_key="global">0</td> </tr></tbody>
+                </table>
+            </div>
+        </div>
+        <input id="TeamSearch_input" type="search" placeholder="Search Team">
+        <div id="TeamSearch_bg">
+            <div id="TeamSearch">
+                <img id="TeamSearch_close" src="./bagsh05_Ranking_files/close.png" alt="Close">
+                <div id="TeamSearch_body"></div>
+            </div>
+        </div>
+        <div id="UserDetail_bg">
+            <div id="UserDetail">
+                <img id="UserDetail_close" src="./bagsh05_Ranking_files/close.png" alt="Close">
+                <div id="UserDetail_header">
+                    <div id="UserDetail_summary">
+                        <img id="UserDetail_face" src="https://informatics.edu.mn/contest2-onoo/" alt="Face">
+                        <div id="UserDetail_f_name"></div>
+                        <div id="UserDetail_l_name"></div>
+                        <div id="UserDetail_team"></div>
+                        <img id="UserDetail_flag" src="https://informatics.edu.mn/contest2-onoo/" alt="Flag">
+                    </div>
+                    <div id="UserDetail_navigator">
+                        <table>
+                            <colgroup><col class="name">
+                            <col class="score">
+                            <col class="rank">
+                            <col class="show">
+                            </colgroup><thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Score</td>
+                                    <td>Rank</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody id="UserDetail_scores">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="UserDetail_title"></div>
+                <div id="UserDetail_charts">
+                    <canvas id="UserDetail_score_chart" width="920" height="250"></canvas>
+                    <canvas id="UserDetail_rank_chart" width="920" height="250"></canvas>
+                </div>
+                <div id="UserDetail_submissions">
+                </div>
+            </div>
+        </div>
+    
+ 
+</body></html>

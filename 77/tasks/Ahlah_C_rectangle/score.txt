@@ -1,0 +1,9 @@
+test example_1 example_2 Жишээ тэст 
+test 1-10 Subtask 1 (10 оноо)
+test 11-20 Subtask 2 (10 оноо)
+test 21-40 Subtask 3 (15 оноо)
+test 41-50 Subtask 4 (15 оноо)
+test 51-60 Subtask 5 (15 оноо)
+test 61-70 Subtask 6 (35 оноо)
+
+[[10,10],[10,10],[15,20],[15,10],[15,10],[35,10]]
